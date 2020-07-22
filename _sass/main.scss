@@ -25,7 +25,7 @@ $text-color: black;
 * {
   font-family:$font-family-sans-serif;
 }
-body {
+body, button{
   line-height:1.25;
   margin:0px;
   //padding: 1rem;
@@ -346,7 +346,7 @@ form input {
   border-color:$text-color;
   padding-top:0.5rem;
   padding-bottom:0.5rem;
-  background-color:#101010;
+  // background-color:#101010;
   
   // margin-left:auto;
   // margin-right:auto;
@@ -365,7 +365,7 @@ form button {
   width: 80px;
   font-size:100%;
   // border-radius: 5px;
-  background-color:#101010;
+  // background-color:#101010;
   border-width:1px;
   border-color:$text-color;
   color:$text-color;
@@ -384,7 +384,7 @@ textarea {
   margin-bottom:2px;
   border-width:1px;
   border-color:$text-color;
-  background-color:#101010;
+  // background-color:#101010;
 }
 
 .ohnohoney{
