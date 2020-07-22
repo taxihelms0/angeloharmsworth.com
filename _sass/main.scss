@@ -15,8 +15,8 @@ $font-family-sans-serif:
 
 $highlight-color: red;
 $link-color: black;
-$page-background: black;
-$text-color: #e0e0e0;
+$page-background: white;
+$text-color: black;
 
 /* end vars */
 
@@ -48,9 +48,9 @@ body {
 a {
   color: $text-color;
   text-decoration: none;
-  border-width:0 0 1px 0;
-  border-style:solid;
-  border-color:$text-color;
+  // border-width:0 0 1px 0;
+  // border-style:solid;
+  // border-color:$text-color;
 }
 a:hover {
   background-color: $highlight-color;
@@ -113,11 +113,11 @@ a:hover {
   overflow: hidden;
   position:fixed;
   top:0;
-  right:0;
+  // right:0;
   left:0;
   background-color:$page-background;
-  margin-left:auto;
-  margin-right:auto;
+  // margin-left:auto;
+  // margin-right:auto;
   line-height:1.15;
   z-index:1000;
   // border-style:solid;
@@ -127,13 +127,16 @@ a:hover {
 
 /* navbar links */
 .topnav a {
-  float: left;
-  display: block;
+  
   color: $text-color;
   text-align: left;
   margin-left:1rem;
-  // text-decoration: none;
-  font-size: 1.5rem;
+  text-decoration: none;
+  background-color: $highlight-color;
+  color: $link-color;
+  float: none;
+  display: block;
+  text-align: left;
 }
 
 .topnav ul {
@@ -146,10 +149,10 @@ a:hover {
 // }
 
 /* Change the color of links on hover */
-.topnav a:hover, #brand:hover {
-  background-color: $highlight-color;
-  color: black;
-}
+// .topnav a:hover, #brand:hover {
+//   background-color: $highlight-color;
+//   color: black;
+// }
 
 /* Add an active class to highlight the current page */
 // .current {
@@ -177,29 +180,30 @@ a:hover {
   background-color:$highlight-color;
 }
 
-.home-menu {
-  background-color:rgba(0, 0, 0, 0);
-  top:33%;
-  width:100%;
-  text-align:center;
-  margin-left:auto;
-  margin-right:auto;
-}
+// .home-menu {
+//   background-color:rgba(0, 0, 0, 0);
+//   top:33%;
+//   width:100%;
+//   text-align:center;
+//   margin-left:auto;
+//   margin-right:auto;
+// }
 
-.home-menu ul {
-  display:inline-block;
-  text-align:center;
+// .home-menu ul {
+//   display:inline-block;
+//   text-align:center;
   
-}
+// }
 
-.home-menu a {
-  font-size:400%;
-  // text-decoration: none;
-  // margin-left:1rem;
-  // margin-right:1rem;
-  display:inline;
+// .home-menu a {
+//   font-size:400%;
+//   // text-decoration: none;
+//   // margin-left:1rem;
+//   // margin-right:1rem;
+//   display:inline;
   
-}
+// }
+
 /* adjust content height to account for nav */
 .content { // default height
   //position: absolute;
