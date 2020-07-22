@@ -49,7 +49,6 @@ a {
 /* end global stuff */
 
 /* Begin Nav Bar Styling */
-
 .topnav {
   overflow: hidden;
   position:fixed;
@@ -93,7 +92,21 @@ a {
 /* end nav styling */
 
 /* begin blog listing style */
-
+blog {
+  display:inline-block;
+  margin-top:5rem;
+  // margin-left:1rem;
+}
+blog ul {
+  
+  padding-left:1rem;
+}
+.post-container {
+  margin-top:1rem;
+  margin-bottom:1rem;
+  display:block;
+  padding-left:1rem;
+}
 /* end blog listing style */
 
 /* begin form stuff */
