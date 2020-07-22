@@ -17,8 +17,8 @@ $highlight-color: red;
 $link-color: black;
 $page-background: white;
 $text-color: black;
-
 /* end vars */
+
 /* begin global stuff */
 * {
   font-family:$font-family-sans-serif;
@@ -33,14 +33,13 @@ body, button{
   font-weight:lighter;
 }
 
-// links
+/* links */ 
 a {
   color: $text-color;
   text-decoration: none;
 }
 // socials
 .socials .grid-container {
-  // text-align:center;
   grid-template-columns: repeat(auto-fill, 100%);
   margin-top:1.5rem;
   padding-left:1rem;
@@ -49,34 +48,23 @@ a {
 }
 /* end global stuff */
 
-// /* Begin Nav Bar Styling */
+/* Begin Nav Bar Styling */
 
 .topnav {
   overflow: hidden;
   position:fixed;
-  // width:flex;
   top:0;
-  // right:0;
   display:inline-block;
   left:0;
-  // background-color:$page-background;
-  // margin-left:auto;
-  // margin-right:auto;
   line-height:1.5;
   z-index:1000;
-  // border-style:solid;
-  // border-radius:0;
-  // border-width:0px 0px 1px 0px;
 }
 
 /* navbar links */
 .topnav li a {
-  // width:flex;
-  // margin-top:0.25rem;
   margin-bottom:0.5rem;
   color: $text-color;
   text-align: left;
-  // margin-left:0.5rem;
   text-decoration: none;
   background-color: $highlight-color;
   color: $link-color;
@@ -102,45 +90,6 @@ a {
 .topnav a.current {
   text-decoration:underline;
 }
-
-/* Hide the link that should open and close the topnav on small screens */
-.topnav .icon, i {
-  display: none;
-  padding-right:0;
-  margin-right:0;
-  padding-left:1px;
-  border-style:none;
-}
-
-.topnav .icon-hidden i {
-  display:none;
-}
-
-.topnav .icon:hover {
-  background-color:$highlight-color;
-}
-
-
-
-/* adjust content height to account for nav */
-.content { // default height
-  //position: absolute;
-  margin-left:auto;
-  margin-right:auto;
-  // left:8px;
-  // top:8px;
-  // right:8px;
-  margin-top: 2rem;
-}
-.doubleMenu {
-  margin-top: 3rem!important;
-}
-.tripleMenu {
-  margin-top: 4rem!important;
-}
-.mobileMenu {
-  margin-top: 5rem!important;
-}
 /* end nav styling */
 
 /* begin blog listing style */
@@ -164,15 +113,10 @@ form {
 }
 
 form input {
-  //padding: 1rem;
   border-width:1px 1px 1px 1px;
   border-color:$text-color;
   padding-top:0.5rem;
   padding-bottom:0.5rem;
-  // background-color:#101010;
-  
-  // margin-left:auto;
-  // margin-right:auto;
   width: 75%;
   display: block;
 }
@@ -187,8 +131,6 @@ form button {
   padding-bottom:0.5rem;
   width: 80px;
   font-size:100%;
-  // border-radius: 5px;
-  // background-color:#101010;
   border-width:1px;
   border-color:$text-color;
   color:$text-color;
@@ -207,7 +149,6 @@ textarea {
   margin-bottom:2px;
   border-width:1px;
   border-color:$text-color;
-  // background-color:#101010;
 }
 
 .ohnohoney{
