@@ -19,8 +19,6 @@ $page-background: white;
 $text-color: black;
 
 /* end vars */
-
-
 /* begin global stuff */
 * {
   font-family:$font-family-sans-serif;
@@ -28,7 +26,6 @@ $text-color: black;
 body, button{
   line-height:1.25;
   margin:0px;
-  //padding: 1rem;
   padding-bottom:2.95rem;
   background-color: $page-background;
   color:$text-color;
@@ -36,65 +33,12 @@ body, button{
   font-weight:lighter;
 }
 
-.content ul, p {
-  padding-inline-start:0rem;
-  // padding-left:1rem;
-  // padding-right:1rem;
-  margin-right:0;
-  margin-left:0;
-}
-
 // links
 a {
   color: $text-color;
   text-decoration: none;
-  // border-width:0 0 1px 0;
-  // border-style:solid;
-  // border-color:$text-color;
-}
-a:hover {
-  background-color: $highlight-color;
-  color: $link-color;
-}
-
-.content li {
-  list-style-type: none;
-  display: block;
-  // padding-right:1rem;
-  padding:1.25rem;
-  // padding-bottom:1.25rem;
-  margin-left:auto;
-  margin-right:auto;
-  border-style: solid;
-  border-width: 0px 0px 1px 0px;
-}
-
-.content p {
-  margin-top:0rem;
-  margin-bottom:0rem;
-  padding-top:1.25rem;
-  padding-left:1.25rem;
-  padding-right:1.25rem;
-  // padding-bottom:1.25rem;
-}
-
-#myContent {
-  // padding-top:1rem;
-  display: block;
-  // padding-right:1rem;
-  // padding:1.25rem;
-  padding-top:0;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-
-.excerpt p {
-  display:inline;
-  padding:0 1rem 0 1rem;
 }
 // socials
-
 .socials .grid-container {
   // text-align:center;
   grid-template-columns: repeat(auto-fill, 100%);
@@ -103,8 +47,6 @@ a:hover {
   margin-right:auto;
   margin-left:auto;
 }
-
-
 /* end global stuff */
 
 // /* Begin Nav Bar Styling */
@@ -128,10 +70,6 @@ a:hover {
 }
 
 /* navbar links */
-
-// .topnav li {
-//   width:flex;
-// }
 .topnav li a {
   // width:flex;
   // margin-top:0.25rem;
@@ -160,23 +98,9 @@ a:hover {
   margin-left:0.5rem;
 }
 
-// #brand {
-//   // background-color:$page-background;
-// }
 
-/* Change the color of links on hover */
-// .topnav a:hover, #brand:hover {
-//   background-color: $highlight-color;
-//   color: black;
-// }
-
-/* Add an active class to highlight the current page */
-// .current {
-//   background-color: $highlight-color;
-// }
-.topnav a.active {
-  background-color: $highlight-color;
-  color: white;
+.topnav a.current {
+  text-decoration:underline;
 }
 
 /* Hide the link that should open and close the topnav on small screens */
@@ -196,29 +120,7 @@ a:hover {
   background-color:$highlight-color;
 }
 
-// .home-menu {
-//   background-color:rgba(0, 0, 0, 0);
-//   top:33%;
-//   width:100%;
-//   text-align:center;
-//   margin-left:auto;
-//   margin-right:auto;
-// }
 
-// .home-menu ul {
-//   display:inline-block;
-//   text-align:center;
-  
-// }
-
-// .home-menu a {
-//   font-size:400%;
-//   // text-decoration: none;
-//   // margin-left:1rem;
-//   // margin-right:1rem;
-//   display:inline;
-  
-// }
 
 /* adjust content height to account for nav */
 .content { // default height
@@ -242,85 +144,6 @@ a:hover {
 /* end nav styling */
 
 /* begin blog listing style */
-.grid-container {
-  display: grid;
-  grid-template-columns: 25% 50% 25%;
-  margin-left:1rem;
-  margin-right:1rem;
-  padding-top:1rem;
-  justify-content: start;
-}
-
-.grid-container.post-content {
-  display: grid;
-  grid-template-columns: 100%;
-  margin-left:1rem;
-  margin-right:1rem;
-  padding-top:1rem;
-  justify-content: start;
-}
-
-// .grid-container:hover {
-//   background-color:$page-background;
-//   color: $link-color;
-// }
-
-.grid-item p {
-  padding-top:0;
-}
-
-.grid-container .post-date {
-  text-align:right;
-  grid-column:3;
-  grid-row:1;
-  
-  text-decoration:underline;
-}
-
-.hoverable:hover {
-  cursor:pointer;
-  background-color:$highlight-color;
-  color:$link-color;
-}
-
-.grid-container .post-excerpt {
-  grid-column:2;
-  grid-row:1;
-  text-decoration:underline;
-}
-
-.grid-container .post-title {
-  cursor:pointer;
-  text-decoration:underline;
-  grid-column:1;
-  grid-row:1;
-}
-
-.grid-container.post-content {
-  overflow:hidden;
-  max-height:0;
-  transition: max-height 0.5s ease-out;
-  // margin-top:0.5rem;
-  // padding-top:0;
-  // padding-bottom:0;
-  // transition: padding-top 0.25s;
-  // transition: padding-bottom 0.25s;
-  grid-column: 1 / span 3;
-  grid-row:2;
-}
-
-.post-content p {
-  margin-top:0.75rem;
-}
-
-.post-content.show {
-  max-height:500px;
-  transition: max-height 0.5s ease-in;
-  // padding-top:0.5rem;
-  // padding-bottom:0.5rem;
-  // transition: padding-top 0.25s;
-  // transition: padding-bottom 0.25s;
-}
 
 /* end blog listing style */
 
@@ -424,61 +247,5 @@ textarea {
 /* end site info footer */
 
 /* contact footer */
-.footer {
-  // display:inline;
-  position:fixed;
-  bottom:0;
-  right:0;
-  left:0;
-  // width:100%;
-  margin-left:auto;
-  margin-right:auto;
-  padding-left:8px;
-  padding-right:8px;
-  
-  
-  
-}
-.footer ul {
-  background-color: $page-background;
-  margin-top:0;
-  margin-bottom:0;
-  padding-inline-start:0;
-  border-radius:2px 0 0 0;
-  text-align:right;
-  
-}
-.footer a {
-  display:inline;
-  // float: right;
-  text-align:right;
-  margin-left:1rem;
-  color: $text-color;  
-  text-decoration: none;
-  font-size: 1.5rem;
-  background-color:$page-background;
-  // padding-right:1rem;
-}
-
-.footer li.info-hidden {
-  display:none;
-}
-
-.footer li.info {
-  display:inline!important;
-  font-size:.8rem;
-  color:$text-color;  
-  margin-left:4px;
-}
-.footer li.info a {
-  display:inline!important;
-  font-size:.8rem;
-  color:$text-color;  
-  margin-left:0;
-}
-.footer .infoToggle {
-  cursor:context-menu;
-}
-
 
 /* end contact footer */
