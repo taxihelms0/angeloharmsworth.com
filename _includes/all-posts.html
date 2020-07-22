@@ -27,25 +27,4 @@
 <!-- </li> -->
 {% endfor %}
 
-<script>
-let posts = {
-  {% for p in site.posts %}
-    "{{ p.title }}": {
-      category: "{{ p.category }}",
-      date: "{{ p.date | date_to_string }}",
-      mediaFile: "{{ p.media_file }}",
-      excerpt: "{{ p.excerpt | strip_html | rstrip }}",
-    },
-  {% endfor %}
-  };
-
-function showContent(postName) {
-  // console.log(postName);
-  let contentBox = document.getElementById(postName + "-content");
-  if(contentBox.className.includes(" show")) {
-    contentBox.className = "grid-container post-content";
-  } else {
-    contentBox.className += " show";
-  }
-}
-</script>
+ß
