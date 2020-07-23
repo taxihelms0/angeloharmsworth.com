@@ -62,7 +62,7 @@
       // font-size:125%;
       box-sizing:border-box;
       align-items:center;
-      
+      padding-top:3rem;
     }
 
     form label, textarea, button, input {
@@ -123,4 +123,42 @@
 //       margin-right:0.5rem;
 //     }
     
+  }
+  // really small screens
+  @media screen and (max-width: 400px) {
+    blog {
+      
+      display:block;
+      margin-top:5rem;
+    // margin-left:1rem;
+      // padding-left:1rem;
+      // padding-right:1rem;
+      justify-content: center;
+      margin-left:auto;
+      margin-right:auto;
+      width:100%;
+      grid-auto-flow: column;
+      // align-items:flex-start;
+      // display:grid;
+      grid-template-columns: auto;
+    }
+
+    .post-image {
+      padding-left:0;
+      max-width:100%;
+    }
+
+    .grid .post-container {
+      // display: flex;
+      // text-align:left;
+      // text-align:center;
+      align-items: stretch;
+      display: inline-flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      margin-top:1rem;
+      margin-bottom:1rem;
+      display:inline-block;
+      padding:0 1rem;
+    }
   }

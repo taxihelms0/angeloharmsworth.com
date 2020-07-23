@@ -1,6 +1,8 @@
 ---
 title: First Post
 date: '2020-06-30'
+type: image
+mediaFile: media/Kevi_chair.jpg
 ---
 This is the excerpt
 

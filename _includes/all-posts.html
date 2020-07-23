@@ -1,15 +1,20 @@
 {% for post in site.posts %}
-<!-- <li class="blogPost"> -->
   <div class="post-container" id="{{ post.title | slugify }}">
+  {% if post.type == 'image' %}
+    {% assign crumbs = post.mediaFile | split: '/' %}
+    {% for crumb in crumbs offset: 1 %}
+      {% if forloop.last %}
+        {% assign fileNameParts = crumb | split: '.' %}
+        {% assign fileName = fileNameParts[0] %}
+      {% endif %}
+    {% endfor %}
+    <img src="{{ post.mediaFile }}" class="post-image" alt="{{ fileName | replace:'_',' ' | replace:'-',' ' | capitalize }}">
+  {% else %}
     <div class="post-title">{{ post.title }}</div>
     <div class="post-excerpt">{{ post.excerpt | strip_html }}</div>
-    <div class="post-date">{{ post.date | date_to_string }}</div>
+    <div class="post-date">{{ post.date | date_to_string }}</div>  
+  {% endif %}
   </div>
-  <!-- <div id = "{{ post.title }}-content" class="grid-container post-content">
-    <div class="grid-item">
-      {% if post.excerpt contains "://" %}{{ post.content }}{% else %}{{ post.content | remove_first: post.excerpt }}{% endif %}
-    </div>
-  </div> -->
 {% endfor %}
 
 <script type="text/javascript">
@@ -25,22 +30,29 @@
   })();
 
   function reportWindowSize() {
-      if (matchMedia('only screen and (max-width: 900px)').matches) {
+    if (matchMedia('only screen and (max-width: 400px)').matches) {
+      posts.forEach((post) => {
+        // post.style.alignItems = 'stretch';
+        // post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
+        post.style.marginTop = '0.5rem';
+        post.style.gridColumn = '1 / span 1';
+      });
+    }
+    else if (matchMedia('only screen and (max-width: 600px)').matches) {
         posts.forEach((post) => {
           // post.style.alignItems = 'stretch';
           // post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
-          post.style.marginTop = Math.floor((Math.random() * 12) + 1)+"rem";;
+          post.style.marginTop = Math.floor((Math.random() * 6) + 1)+"rem";
+          post.style.gridColumn = Math.floor((Math.random() * 3) + 1) + '/ span ' + Math.floor((Math.random() * 3) + 2);
+        });
+      } else if (matchMedia('only screen and (max-width: 900px)').matches) {
+        posts.forEach((post) => {
+          // post.style.alignItems = 'stretch';
+          // post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
+          post.style.marginTop = Math.floor((Math.random() * 12) + 1)+"rem";
           post.style.gridColumn = Math.floor((Math.random() * 4) + 1) + '/ span ' + Math.floor((Math.random() * 3) + 2);
         });
-      } else if (matchMedia('only screen and (max-width: 600px)').matches) {
-        posts.forEach((post) => {
-          // post.style.alignItems = 'stretch';
-          // post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
-          post.style.marginTop = Math.floor((Math.random() * 6) + 1)+"rem";;
-          post.style.gridColumn = Math.floor((Math.random() * 3) + 1) + '/ span ' + Math.floor((Math.random() * 4) + 2);
-        });
-      } else 
-      {
+      } else {
         posts.forEach((post) => {
           // post.style.alignItems = 'stretch';
           // post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
