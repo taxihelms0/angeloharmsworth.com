@@ -14,16 +14,55 @@
 
 <script type="text/javascript">
   const posts = document.querySelectorAll('.post-container');
-  posts.forEach((post) => {
-    // for each we add a 'click' listener
-    // post.style.position = 'fixed'; 
-    post.style.display = 'inline-block';
-    post.style.backgroundColor = 'white';
-    // post.style.padding = '3rem';
 
-    // Math.floor((Math.random() * 50) + 2)+"rem";
-    post.style.marginLeft = Math.floor((Math.random() * 40) + 1)+"rem";  
-    post.style.marginTop = Math.floor((Math.random() * 12) + 1)+"rem";   
+  // delay for resizing
+  let delay = (function(){
+    let timer = 0;
+    return function(callback, ms){
+      clearTimeout (timer);
+      timer = setTimeout(callback, ms);
+    };
+  })();
+
+  function reportWindowSize() {
+      if (matchMedia('only screen and (max-width: 900px)').matches) {
+        posts.forEach((post) => {
+          // post.style.alignItems = 'stretch';
+          // post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
+          post.style.marginTop = Math.floor((Math.random() * 12) + 1)+"rem";;
+          post.style.gridColumn = Math.floor((Math.random() * 4) + 1) + '/ span ' + Math.floor((Math.random() * 3) + 2);
+        });
+      } else if (matchMedia('only screen and (max-width: 600px)').matches) {
+        posts.forEach((post) => {
+          // post.style.alignItems = 'stretch';
+          // post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
+          post.style.marginTop = Math.floor((Math.random() * 6) + 1)+"rem";;
+          post.style.gridColumn = Math.floor((Math.random() * 3) + 1) + '/ span ' + Math.floor((Math.random() * 4) + 2);
+        });
+      } else 
+      {
+        posts.forEach((post) => {
+          // post.style.alignItems = 'stretch';
+          // post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
+          post.style.marginTop = Math.floor((Math.random() * 12) + 1)+"rem";;
+          post.style.gridColumn = Math.floor((Math.random() * 5) + 1) + '/ span ' + Math.floor((Math.random() * 5) + 2);
+        });
+      }
+  }
+
+  function load(){
+    reportWindowSize();
+  }
+
+  window.onload = load();
+
+
+  window.addEventListener('resize',() => {
+    
+    delay(function(){
+    // alert('Resize...');
+    reportWindowSize();
+    }, 500);
+    
   });
 </script>
-

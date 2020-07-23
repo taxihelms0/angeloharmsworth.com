@@ -97,15 +97,41 @@ blog {
   margin-top:5rem;
   // margin-left:1rem;
 }
-blog ul {
-  
+blog {
   padding-left:1rem;
+  // padding-right:1rem;
+  justify-content: center;
+  // margin-left:auto;
+  // margin-right:auto;
+  width:80%;
+  grid-auto-flow: column;
+  // align-items:flex-start;
+  display:grid;
+  grid-template-areas: 
+    '. . . . . . . .'
+    '. . . . . . . .'
+    '. . . . . . . .'
+    '. . . . . . . .'
 }
-.post-container {
+.grid .post-container {
+  // display: flex;
+  // text-align:left;
+  // text-align:center;
+  align-items: stretch;
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   margin-top:1rem;
   margin-bottom:1rem;
-  display:block;
+  display:inline-block;
   padding-left:1rem;
+}
+
+.post-container .post-title, .post-excerpt, .post-date {
+  // text-align:left;
+  margin-left:auto;
+  margin-right:auto;
+  width:100%;
 }
 /* end blog listing style */
 
