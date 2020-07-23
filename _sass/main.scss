@@ -101,17 +101,13 @@ blog {
   padding-left:1rem;
   // padding-right:1rem;
   justify-content: center;
-  // margin-left:auto;
-  // margin-right:auto;
+  margin-left:auto;
+  margin-right:auto;
   width:80%;
   grid-auto-flow: column;
   // align-items:flex-start;
   display:grid;
-  grid-template-areas: 
-    '. . . . . . . .'
-    '. . . . . . . .'
-    '. . . . . . . .'
-    '. . . . . . . .'
+  grid-template-columns: repeat(auto-fit, 10rem);
 }
 .grid .post-container {
   // display: flex;
