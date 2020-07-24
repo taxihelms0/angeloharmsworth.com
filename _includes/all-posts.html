@@ -1,6 +1,6 @@
 {% for post in site.posts %}
   <div class="post-container" id="{{ post.title | slugify }}">
-  {% if post.type == 'image' %}
+  {% if post.type == 'image' || post.type == 'audio' %}
     {% assign crumbs = post.mediaFile | split: '/' %}
     {% for crumb in crumbs offset: 1 %}
       {% if forloop.last %}
@@ -8,7 +8,7 @@
         {% assign fileName = fileNameParts[0] %}
       {% endif %}
     {% endfor %}
-    <img src="{{ post.mediaFile }}" class="post-image" alt="{{ fileName | replace:'_',' ' | replace:'-',' ' | capitalize }}">
+    <img src="{{ post.mediaFile }}" class="post-image" alt="{{ post.title }}">
   {% endif %}
   {% if post.type == 'youtube' %}
     {% assign crumbs = post.youtubeurl | split: '/' %}
@@ -19,7 +19,16 @@
     {% endfor %}
     <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ urlTail }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   {% endif %}
-  {% if post.type == 'text' %}
+  {% if post.type == 'audio' %}
+    <div class="post.title">
+      {{ post.title }}
+    </div>
+    <audio controls>
+      <source src="{{ post.mediaFile }}" preload="auto">
+      Sorry, your browser does not support the audio player!
+    </audio>
+  {% endif %}
+  {% if post.type == 'text' || !post.type %}
     <div class="post-title">{{ post.title }}</div>
     <div class="post-excerpt">{{ post.excerpt | strip_html }}</div>
     <div class="post-date">{{ post.date | date_to_string }}</div>  
@@ -39,76 +48,94 @@
     };
   })();
 
-  function reportWindowSize() {
-    if (matchMedia('only screen and (max-width: 400px)').matches) {
-      posts.forEach((post) => {
-        if(post === posts[0]){
-          console.log(posts[0]);
-          post.style.marginTop = Math.floor((Math.random() * 4) + 1)+"rem";;
+  function randomizeArray(arraySize){
+    let array = [];
+    // first make the array
+    for(let i=0; i < arraySize; i++){
+      array[i] = i;
+    }
+    for(let i = (arraySize - 1); i > 0; i--){
+      const j = Math.floor(Math.random() * i)
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+  
+  function rearrangeItems() {
+    const randomIndex = randomizeArray(posts.length)
+    posts.forEach((post) => {
+      post.style.order = randomIndex.shift(); // take first val from array of random indices
+      // media query very small screen
+      if (matchMedia('only screen and (max-width: 400px)').matches) {
+        if(post.style.order === 1) { // do the same thing to all the first posts
+          post.style.marginTop = Math.floor((Math.random() * 4) + 1)+"rem";
+        } else {
+          post.style.marginTop = '0.5rem';
+        }
+        post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
+      }
+      // media query small screen
+      else if (matchMedia('only screen and (max-width: 600px)').matches) {
+        if(post.style.order === 1) { // do the same thing to all the first posts
+          post.style.marginTop = Math.floor((Math.random() * 4) + 1)+"rem";
+          post.style.marginLeft = Math.floor((Math.random() * 10) + 1)+"rem";
+        } else {
+          post.style.marginTop = Math.floor((Math.random() * 10) + 1)+"rem";
+          post.style.marginLeft = Math.floor((Math.random() * 20) + 1)+"rem";
+        }
+        
+      }
+      // media query med screen
+      else if (matchMedia('only screen and (max-width: 900px)').matches) {
+        if(post.style.order === 1){
+          post.style.marginTop = Math.floor((Math.random() * 5) + 1)+"rem";
+          post.style.marginLeft = Math.floor((Math.random() * 15) + 1)+"rem";
+        }
+        else {
+          post.style.marginTop = Math.floor((Math.random() * 40) + 1)+"rem";
+          post.style.marginLeft = Math.floor((Math.random() * 50) + 1)+"rem";
+        }
+        
+      }
+      // large screen
+      else {
+        if(post.style.order === 1){
+          post.style.marginTop = Math.floor((Math.random() * 5) + 5)+"rem";
+          post.style.marginLeft = Math.floor((Math.random() * 5) + 5)+"rem";
         }
         else {
           // post.style.alignItems = 'stretch';
-          // post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
-          post.style.marginTop = '0.5rem';
-          post.style.gridColumn = '1 / span 1';
+          post.style.marginTop = Math.floor((Math.random() * 15) - 10)+"rem";
+          post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
         }
-      });
-    }
-    else if (matchMedia('only screen and (max-width: 600px)').matches) {
-        posts.forEach((post) => {
-          if(post === posts[0]){
-            console.log(posts[0]);
-            post.style.marginTop = Math.floor((Math.random() * 4) + 1)+"rem";;
-          }
-          else {
-            // post.style.alignItems = 'stretch';
-            // post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
-            post.style.marginTop = Math.floor((Math.random() * 3) + 1)+"rem";
-            post.style.gridColumn = Math.floor((Math.random() * 4) + 1) + '/ span ' + Math.floor((Math.random() * 4) + 2);
-          }
-        });
-      } else if (matchMedia('only screen and (max-width: 900px)').matches) {
-        posts.forEach((post) => {
-          if(post === posts[0]){
-            console.log(posts[0]);
-            post.style.marginTop = Math.floor((Math.random() * 4) + 1)+"rem";;
-          }
-          else {
-            // post.style.alignItems = 'stretch';
-            // post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
-            post.style.marginTop = Math.floor((Math.random() * 5) + 1)+"rem";
-            post.style.gridColumn = Math.floor((Math.random() * 6) + 1) + '/ span ' + Math.floor((Math.random() * 6) + 2);
-          }
-        });
-      } else {
-        posts.forEach((post) => {
-          if(post === posts[0]){
-            console.log(posts[0]);
-            post.style.marginTop = Math.floor((Math.random() * 4) + 1)+"rem";;
-          }
-          else {
-            // post.style.alignItems = 'stretch';
-            // post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
-            post.style.marginTop = Math.floor((Math.random() * 7) + 1)+"rem";
-            post.style.gridColumn = Math.floor((Math.random() * 10) + 1) + '/ span ' + Math.floor((Math.random() * 12) + 2);
-          }
-          
-        });
       }
+    });
   }
 
   function load(){
-    reportWindowSize();
+    rearrangeItems();
+    // makeRandomGrid();
+    
+  }
+
+  function addTransitions() {
+    // add transitions after arrangement has been set
+    posts.forEach((post) => {
+      post.style.transition = "margin-top 0.5s, margin-left 0.5s, order 0.5s";
+    });
   }
 
   window.onload = load();
-
-
   window.addEventListener('resize',() => {
     
     delay(function(){
     // alert('Resize...');
-    reportWindowSize();
+    // addTransitions();
+    rearrangeItems();
+
+    // makeRandomGrid();
     }, 500);
     
   });
