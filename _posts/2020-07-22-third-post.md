@@ -1,6 +1,8 @@
 ---
 title: Third Post
 date: '2020-07-22'
+type: 'youtube'
+youtubeurl: https://youtu.be/3myXFtdInDU
 ---
 This is the excerpt
 

@@ -9,7 +9,17 @@
       {% endif %}
     {% endfor %}
     <img src="{{ post.mediaFile }}" class="post-image" alt="{{ fileName | replace:'_',' ' | replace:'-',' ' | capitalize }}">
-  {% else %}
+  {% endif %}
+  {% if post.type == 'youtube' %}
+    {% assign crumbs = post.youtubeurl | split: '/' %}
+    {% for crumb in crumbs offset: 1 %}
+      {% if forloop.last %}
+        {% assign urlTail = crumb %}
+      {% endif %}
+    {% endfor %}
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ urlTail }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  {% endif %}
+  {% if post.type == 'text' %}
     <div class="post-title">{{ post.title }}</div>
     <div class="post-excerpt">{{ post.excerpt | strip_html }}</div>
     <div class="post-date">{{ post.date | date_to_string }}</div>  

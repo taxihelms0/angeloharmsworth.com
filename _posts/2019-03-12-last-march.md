@@ -1,6 +1,7 @@
 ---
 title: Last March
 date: '2019-03-12'
+type: 'text'
 ---
 This is the excerpt
 

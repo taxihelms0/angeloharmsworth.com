@@ -1,6 +1,7 @@
 ---
 title: Second Post
 date: '2020-07-19'
+type: 'text'
 ---
 This is the excerpt
 
