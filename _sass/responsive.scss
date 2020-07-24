@@ -41,8 +41,11 @@
     blog {
       grid-template-columns: repeat(4, auto);
     }
-    .post-image {
+    .post-image, iframe {
       max-width:15rem;
+    }
+    iframe {
+      height: auto;
     }
 
   
@@ -152,9 +155,12 @@
       grid-template-columns: auto;
     }
 
-    .post-image {
+    .post-image, iframe {
       padding-left:0;
       max-width:100%;
+    }
+    iframe {
+      height: auto;
     }
 
     .grid .post-container {
@@ -177,7 +183,10 @@
       grid-template-columns: repeat(4, auto);
 
     }
-    .post-image {
+    .post-image, iframe{
       max-width:20rem;
+    }
+    iframe {
+      height: auto;
     }
   }
