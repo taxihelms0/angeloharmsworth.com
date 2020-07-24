@@ -2,6 +2,7 @@
 title: Last March
 date: '2019-03-12'
 type: 'text'
+mediaFile: 
 ---
 This is the excerpt
 

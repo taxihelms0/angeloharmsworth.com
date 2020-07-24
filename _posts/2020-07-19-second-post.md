@@ -1,7 +1,8 @@
 ---
-title: Second Post
+title: "'The Terminator' Main Title"
 date: '2020-07-19'
-type: 'text'
+type: 'audio'
+mediaFile: "media/02 - 'The Terminator' Main Title.mp3"
 ---
 This is the excerpt
 
