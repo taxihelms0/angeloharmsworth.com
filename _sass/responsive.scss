@@ -1,73 +1,7 @@
-// /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-// @media screen and (max-width: 600px) {
-//     .topnav a:not(:first-child) {
-//       display: none;
-//     }
-//     .topnav a.current {
-//       display: block;
-//       margin-left:0;
-//       background-color:none;
-//       // font-size: 1.5rem;
-//       // padding-top:1.1rem;
-//       // padding-bottom:auto;
-//     }
-//     .topnav #brand {
-//       margin-right:0;
-//       margin-left:1rem!important;
-//       // background-color:$page-background!important;
-      
-//       // font-size: 1.5rem;
-//       padding-top:0;
-//     }
-//     .topnav a.icon {
-//       background-color:rgba(0, 0, 0, 0);
-//       position:fixed;
-//       right:0;
-//       margin-right:1rem;
-//       display: block;
-//     }
-//     .topnav {
-//       background-color:$page-background;
-//     }
-
-//     /* menu for home page */
-//     .home-menu {
-//       top:0;
-//     }
-//   }
-  
   /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
   @media screen and (max-width: 600px) {
-    blog {
-      grid-template-columns: repeat(4, auto);
-    }
-    .post-image, iframe {
-      max-width:15rem;
-    }
-    iframe {
-      height: auto;
-    }
 
-  
-  
-//     .topnav.responsive {position: fixed;}
-//     .topnav.responsive a.icon {
-//       position: fixed;
-//       right: 0;
-//       top: 0;
-//       margin-right:1rem;
-//     }
-//     .topnav.responsive a {
-//       float: none;
-//       display: block;
-//       text-align: left;
-//     }
-//     .topnav.responsive a.current {
-//       margin-left:1rem;
-//       // font-size: 3.5em;
-//       padding-top:0;
-//     }
-  
+
     /* Form resize for small screens */
     form {
       width:85%;
@@ -91,102 +25,37 @@
     form button {
       font-size:1.25rem;
     }
-
-//     // site info toggler
-//     // .footer {
-//     //   width:100%;
-//     // }
-//     .footer ul {
-//       display:block!important;
-//       // font-size:.8rem!important;
-//       // font-color:#555;  
-//     }
-
-//     .footer li.info {
-//       font-size:1rem;
-//     }
-//     .footer li.info a {
-//       font-size:1rem;
-//     }
-
-//     // social links
-//     .socials .grid-container {
-//       grid-template-columns: repeat(auto-fill, 175px);
-//     }
-
-//     // audio player 
-//     audio {
-//       position:static!important;
-//       width:100%!important;
-//       text-align:center!important;
-//     }
-
-//     // blog listing
-//     blog .grid-container {
-//       grid-template-columns: 50%;
-//     }
-//     .grid-container .post-date {
-//       // display:none;
-//       text-align:left;
-//       grid-column:1;
-//       grid-row:3;
-//     }
-//     blog .grid-item {
-//       margin-right:0.5rem;
-//     }
     
   }
   // really small screens
   @media screen and (max-width: 400px) {
-    blog {
-      
-      display:block;
-      margin-top:4rem;
-    // margin-left:1rem;
-      // padding-left:1rem;
-      // padding-right:1rem;
-      justify-content: center;
-      margin-left:auto;
-      margin-right:auto;
+    .center, blog {
       width:100%;
-      grid-auto-flow: column;
-      // align-items:flex-start;
-      // display:grid;
-      grid-template-columns: auto;
+      justify-items:center;
     }
-
-    .post-image, iframe {
-      padding-left:0;
-      max-width:100%;
+    .post-title, .post-excerpt, .post-date {
+      margin-left:0.5rem;
+      width:auto;
     }
-    iframe {
-      height: auto;
+    .post-container {
+      display:block;
+      margin:0;
+      // width:100%;
     }
-
-    .grid .post-container {
-      // display: flex;
-      // text-align:left;
-      // text-align:center;
-      align-items: stretch;
-      display: inline-flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      margin-top:1rem;
-      margin-bottom:1rem;
-      display:inline-block;
-      padding:0 1rem;
+    .audio {
+      width:100%;
+      
     }
   }
 
   @media screen and (max-width: 900px) {
-    blog {
-      grid-template-columns: repeat(4, auto);
-
-    }
-    .post-image, iframe{
-      max-width:20rem;
+    .post-image {
+      max-width:100%;
+      max-height:auto;
     }
     iframe {
-      height: auto;
+      background-color:$page-background;
+      max-width:100%;
+      height:16rem;
     }
   }

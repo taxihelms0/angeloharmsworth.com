@@ -94,54 +94,36 @@ a {
 /* begin blog listing style */
 
 blog {
-  display:flex;
+  display:inline-flex;
   flex-flow: row wrap;
   margin-top:0rem;
   margin-top:5rem;
-  // text-align:center;
-  // margin-left:1rem;
-  // padding-left:1rem;
-  // padding-right:1rem;
-  justify-content: center;
-  margin-left:auto;
-  margin-right:auto;
   width:100%;
-  // grid-auto-flow: column;
-  align-items:center;
-  // display:grid;
-  // grid-template-columns: repeat(6, 16.6%);
-  // flex-wrap: wrap;
 }
 .post-container {
-  // display: flex;
-  // text-align:left;
-  // text-align:center;
-  // align-items: center;
-  // align-self:stretch;
-  // display: inline-flex;
-  // flex-wrap: wrap;
-  // flex-direction: column;
-  margin-top:1rem;
-  // margin-bottom:1rem;
-  // display:inline-block;
-  padding:1rem;
-  // column-span: 2;
   
+  // margin-right:auto;
+  margin-top:1rem;
+  padding:0.25rem;  
+}
+.center {
+  display:flex;
+  margin-left:auto;
+  margin-right:auto;
+  width:90%;
+  justify-items:center;
 }
 
-// .post-container .post-title, .post-excerpt, .post-date {
-//   // display:block;
-//   // text-align:left;
-//   // margin-left:auto;
-//   // margin-right:auto;
-//   width:100%;
-// }
 
 .post-image {
   max-width:33rem;
   max-height:auto;
 }
+// .post-title {
+//   margin-top:4rem;
+// }
 iframe {
+  background-color:$page-background;
   max-width:30rem;
   max-height:20rem;
 }
