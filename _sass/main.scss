@@ -127,6 +127,110 @@ iframe {
   max-width:30rem;
   max-height:20rem;
 }
+
+/* audio player styling */
+.audio {
+  z-index:2000;
+}
+.audioplayer {
+  // z-index:2000;
+  display:inline-block;
+  // grid-template-columns: 20px 420px;
+  // justify-items: center;
+  // margin: 0.25rem;
+  background-color:$page-background;
+  border-width:1px;
+  border-style:solid;
+  // text-align:justify;
+}
+
+.audioplayer .post-title, .download-link{
+  display:inline-block;
+  margin:0;
+  padding:0.5rem;
+  // text-align:center;
+  // grid-row:1;
+}
+
+.audioplayer .post-title {
+  text-align:left;
+}
+.pButton:hover {
+  cursor:pointer;
+}
+
+.download-link {
+  float:right;
+}
+
+
+
+ 
+// .play{
+//   border: none;
+//   background-size: 70% 70%;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   float:left;
+//   outline:none;
+// }
+ 
+// .play{background: url('Play_button.png') ;}
+// .pause{background: url('Pause_button.png') ;}
+ 
+.timeline{
+  align-self:center;
+  margin-left:10px;
+  background-color:rgba(0,0,0,1);
+  margin-top:11px;
+  margin-bottom:12px;
+  width: 400px;
+  // width: 400px;
+  height: 1px;
+  // margin-top: 20px;
+  // float: left;
+  // border-radius: 15px;
+  // border: black 1px solid;
+  // display: block;
+  align-items:center;
+  
+  // background-color: rgb(43,194,83);
+  // background-image: linear-gradient(
+  //   center bottom,
+  //   rgb(43,194,83) 37%,
+  //   rgb(84,240,84) 69%
+  // );
+  // box-shadow:
+  //   inset 0 2px 9px  rgba(255,255,255,0.3),
+  //   inset 0 -2px 6px rgba(0,0,0,0.4);
+  // position: relative;
+}
+
+// .playheadPath {
+//   // display:inline-block;
+//   margin-top:11px;
+//   margin-bottom:12px;
+//   width: 400px;
+//   height:24px;
+//   // align-self:center;
+//   background-color: $text-color;
+// }
+ 
+.playhead{
+  // align-self:center;
+  // position:absolute;
+  margin-top:-11px;
+  // margin-bottom:12px;
+  width: 2px;
+  height: 24px;
+  display:flex;
+  // border-radius: 50%;
+  // margin-top:  1px;
+  background: rgba(0, 0, 0, 1);
+}
+
+/* end audio player styling */
+
 /* end blog listing style */
 
 /* begin form stuff */
@@ -146,7 +250,7 @@ form {
 }
 
 form input {
-  border-width:1px 1px 1px 1px;
+  border-width:1px;
   border-color:$text-color;
   padding-top:0.5rem;
   padding-bottom:0.5rem;

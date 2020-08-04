@@ -1,5 +1,6 @@
+<link rel="stylesheet" type="text/css" href="assets/css/green-audio-player.css">
 {% for post in site.posts %}
-  <div class="post-container" id="{{ post.title | slugify }}">
+  <div class="post-container{% if post.type == 'audio' %} audio{% endif %}" id="{{ post.title | slugify }}">
   {% if post.type == 'image' || post.type == 'audio' %}
     {% assign crumbs = post.mediaFile | split: '/' %}
     {% for crumb in crumbs offset: 1 %}
@@ -20,14 +21,22 @@
     <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ urlTail }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   {% endif %}
   {% if post.type == 'audio' %}
-  <div class="post-title">
-    {{ post.title }}
-  </div>
-    <audio controls>
-      <source src="{{ post.mediaFile }}" preload="auto">
-      Sorry, your browser does not support the audio player!
-    </audio>
-    
+  <div class="audioplayer" id="{{ post.mediaFile }}">
+    <div class="post-title">
+      {{ post.title }}
+    </div>
+    {% if post.downloadable %}
+          <div class="download-link">
+            <a href="{{post.mediaFile}}" download>download</a>
+          </div>
+          {% endif %}
+    <div class="player">
+      <audio crossorigin>
+        <source src="{{post.mediaFile}}" type="audio/mpeg" preload="auto">
+      </audio>
+    </div>
+
+  </div>  
   {% endif %}
   {% if post.type == 'text' || !post.type %}
     <div class="post-title">{{ post.title }}</div>
@@ -36,7 +45,29 @@
   {% endif %}
   </div>
 {% endfor %}
+<script src="assets/js/green-audio-player.js"></script>
+<script>
+  // audio player stuff
+  document.addEventListener('DOMContentLoaded', function() {
+    // GreenAudioPlayer.init({
+    //   selector: '.player',
+    //   stopOthersOnPlay: true
+    //   });
+    GreenAudioPlayer.init({
+      selector: '.player',
+        stopOthersOnPlay: true,
+        // showDownloadButton: true,
+        enableKeystrokes: true
+    });
 
+    // GreenAudioPlayer.init({
+    //   selector: '.player-with-accessibility',
+    //   stopOthersOnPlay: true,
+    //   enableKeystrokes: true
+    // });
+  });
+
+</script>
 <script type="text/javascript">
   const posts = document.querySelectorAll('.post-container');
 
@@ -83,7 +114,7 @@
           post.style.marginLeft = Math.floor((Math.random() * 3) + 1)+"rem";
         }
         else {
-          post.style.marginTop = Math.floor((Math.random() * 5) - 1)+"rem";
+          post.style.marginTop = Math.floor((Math.random() * 5) + 0)+"rem";
           post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
         }
         
@@ -95,7 +126,7 @@
           post.style.marginLeft = Math.floor((Math.random() * 5) + 5)+"rem";
         }
         else {
-          post.style.marginTop = Math.floor((Math.random() * 5) - 2.5)+"rem";
+          post.style.marginTop = Math.floor((Math.random() * 5) - 1)+"rem";
           post.style.marginLeft = Math.floor((Math.random() * 20) + 1)+"rem";
         }
         
@@ -108,7 +139,7 @@
         }
         else {
           // post.style.alignItems = 'stretch';
-          post.style.marginTop = Math.floor((Math.random() * 10) - 5)+"rem";
+          post.style.marginTop = Math.floor((Math.random() * 10) - 1.5)+"rem";
           post.style.marginLeft = Math.floor((Math.random() * 5) + 1)+"rem";
         }
       }
