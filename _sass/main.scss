@@ -130,7 +130,7 @@ iframe {
 
 /* audio player styling */
 .audio {
-  z-index:2000;
+  z-index:999;
 }
 .audioplayer {
   // z-index:2000;
@@ -140,6 +140,7 @@ iframe {
   // margin: 0.25rem;
   background-color:$page-background;
   border-width:1px;
+  // border-radius:20px;
   border-style:solid;
   // text-align:justify;
 }
@@ -250,7 +251,7 @@ form {
 }
 
 form input {
-  border-width:1px;
+  border-width:1px 1px 1px 1px;
   border-color:$text-color;
   padding-top:0.5rem;
   padding-bottom:0.5rem;

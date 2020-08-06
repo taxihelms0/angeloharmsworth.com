@@ -25,6 +25,13 @@
     form button {
       font-size:1.25rem;
     }
+    .post-container.audio {
+      width:100%!important;
+      
+    }
+    .green-audio-player {
+      min-width:310px!important;
+    }
     
   }
   // really small screens
@@ -42,10 +49,7 @@
       margin:0;
       // width:100%;
     }
-    .audio {
-      width:100%;
-      
-    }
+    
   }
 
   @media screen and (max-width: 900px) {
