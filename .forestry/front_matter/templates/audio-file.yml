@@ -1,4 +1,35 @@
 ---
 label: Audio File
 hide_body: false
-fields: []
+fields:
+- name: title
+  type: text
+  config:
+    required: true
+  label: Title
+- name: date
+  type: datetime
+  label: Date
+  description: ''
+  config:
+    required: true
+    date_format: YYYY-MM-DD
+    time_format: 
+    display_utc: false
+  default: now
+- name: type
+  type: text
+  config:
+    required: true
+  label: type
+  hidden: true
+  default: audio
+- name: mediaFile
+  type: file
+  config:
+    maxSize: 64
+  label: Audio File Upload
+  description: upload your audio file. (MP3s only! wav/aiff are too big!)
+- name: downloadable
+  type: boolean
+  label: downloadable
